@@ -1,37 +1,57 @@
-<ion-content class="ion-padding">
+<app-header
+  (search)="onSearch($event)"
+  (regionChange)="onRegionChange($event)">
+</app-header>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Descubri Daily</ion-card-title>
-      <ion-card-subtitle>¿Por qué ver Tierra de mafiosos?</ion-card-subtitle>
-    </ion-card-header>
+<ion-content>
 
-    <ion-card-content>
-      <ion-item lines="none">
-        <ion-avatar slot="start">
-          <img src="assets/avatar.jpg" />
-        </ion-avatar>
-        <ion-label>
-          <h2>Héctor Llanos Martínez</h2>
-          <p>Editor de Just...</p>
-        </ion-label>
+  <!-- <ion-accordion-group>
+    <ion-accordion value="first" toggleIcon="caret-down-circle">
+      <ion-item slot="header" color="light">
+        <ion-label>Películas y series de TV populares - JustWatch España</ion-label>
       </ion-item>
+      <div class="ion-padding" slot="content">
+        Bienvenida/o a JustWatch España! Aquí podrás encontrar fácilmente dónde ver tus películas y Series en streaming en España...
+      </div>
+    </ion-accordion>
+  </ion-accordion-group> -->
 
-      <ion-img src="assets/Tierra_de_mafiosos.jpg" />
+  <div class="section-header">
+    <h1>Descubre a diario</h1>
+    <span>Usuarios con gustos similares vieron esto</span>
+  </div>
 
-      <h3 class="ion-margin-top">Mafia con un toque british</h3>
-      <p>
-        A pesar de que tanto el director Guy Ritchie como el actor Tom Hardy están bastante encasillados, el formato serie les sienta bien a la hora de renovar sus manidos patrones. Serie de mafiosos en pleno Londres, con un estilo britán...
-      </p>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let movie of movies">
+        <ion-card>
+          <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="Poster" />
+          <ion-card-header>
+            <ion-card-title>{{ movie.title || movie.name }}</ion-card-title>
+            <ion-card-subtitle>{{ movie.release_date || movie.first_air_date }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            {{ movie.overview }}
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
 
-      <ion-button expand="block" color="primary">Leer más</ion-button>
-
-      <ion-item lines="none">
-        <ion-label>¿Te resultó útil?</ion-label>
-        <ion-badge slot="end">149</ion-badge>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+  <div class="grid-cards">
+    <ion-card *ngFor="let movie of movies">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="Poster" />
+      <ion-card-header>
+        <ion-card-title>{{ movie.title || movie.name }}</ion-card-title>
+        <ion-card-subtitle>{{ movie.release_date || movie.first_air_date }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{ movie.overview }}
+      </ion-card-content>
+    </ion-card>
+  </div>
 
 </ion-content>
-

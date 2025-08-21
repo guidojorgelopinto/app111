@@ -1,0 +1,65 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1c1c1c;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f5c518;
+
+  span {
+    color: #fff;
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+
+  ion-searchbar {
+    width: 250px;
+    --background: #2a2a2a;
+    --color: #fff;
+    --placeholder-color: #aaa;
+  }
+
+  .country-select {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: none;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+
+  .menu-icon {
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="logo">Just<span>Watch</span></div>
+
+  <nav class="nav-links">
+    <a href="/tabs/tab1">Inicio</a>
+    <a href="/tabs/tab2">Nuevo</a>
+    <a href="/tabs/tab3">Popular</a>
+    <a href="#">Éxitos</a>
+    <a href="#">Recomendado</a>
+    <a href="#">Géneros</a>
+  </nav>
+
+  <div class="search-section">
+    <ion-searchbar
+      placeholder="Encuentra películas o series de TV"
+      animated
+      debounce="500"
+      (ionInput)="onSearchChange($event)">
+    </ion-searchbar>
+
+    <select class="country-select" (change)="onRegionChange($event)">
+      <option value="ES">🇪🇸 España</option>
+      <option value="US">🇺🇸 USA</option>
+      <option value="AR">🇦🇷 Argentina</option>
+    </select>
+
+    <!-- <ion-icon name="menu"></ion-icon> -->
+
+  </div>
+</header>
